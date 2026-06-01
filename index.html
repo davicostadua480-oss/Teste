@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nebula Tribunal — Sistema Visual Experimental</title>
+  <meta name="description" content="Landing page futurista experimental com painel, simulador, busca, animações e UI responsiva." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Nebula Tribunal">
+      <span class="brand-mark">NT</span>
+      <span>
+        <strong>Nebula Tribunal</strong>
+        <small>Interface de soberania digital</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#sistema">Sistema</a>
+      <a href="#painel">Painel</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#precos">Planos</a>
+    </nav>
+
+    <div class="top-actions">
+      <button class="ghost-btn" id="themeToggle" type="button">Modo Eclipse</button>
+      <button class="primary-btn" data-open-modal type="button">Entrar na demo</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          Protótipo avançado em HTML, CSS e JavaScript puro
+        </div>
+        <h1>Um painel futurista para controlar ideias, negócios e processos como se fossem um império.</h1>
+        <p>
+          Uma demonstração visual feita para impressionar: dashboard, simuladores, busca inteligente,
+          filtros, comandos rápidos, animações, persistência local e layout responsivo.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn big" href="#painel">Ver painel vivo</a>
+          <button class="secondary-btn big" id="randomizeDemo" type="button">Gerar cenário</button>
+        </div>
+
+        <div class="metrics">
+          <article>
+            <strong data-counter="97">0</strong>
+            <span>pontos de aura</span>
+          </article>
+          <article>
+            <strong data-counter="24">0</strong>
+            <span>módulos simulados</span>
+          </article>
+          <article>
+            <strong data-counter="8">0</strong>
+            <span>camadas visuais</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="hero-orb reveal">
+        <div class="orb">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="core">
+            <span>ORACLE</span>
+            <strong id="oracleScore">91%</strong>
+          </div>
+        </div>
+
+        <div class="floating-card card-a">
+          <span>Risco</span>
+          <strong>Baixo</strong>
+        </div>
+        <div class="floating-card card-b">
+          <span>Status</span>
+          <strong>Dominante</strong>
+        </div>
+        <div class="floating-card card-c">
+          <span>Energia</span>
+          <strong>Crítica</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sistema">
+      <div class="section-head reveal">
+        <p class="eyebrow">Arquitetura do tema</p>
+        <h2>Não é só uma página bonita. É uma base para produto.</h2>
+        <p>
+          Este tema pode virar SaaS, painel jurídico, cardápio digital, site de empresa, dashboard financeiro
+          ou sistema interno com login e banco de dados.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal" data-tilt>
+          <span class="icon">◈</span>
+          <h3>Landing page premium</h3>
+          <p>Hero cinematográfico, CTA, métricas animadas, cards, preços e FAQ.</p>
+        </article>
+        <article class="feature-card reveal" data-tilt>
+          <span class="icon">⌬</span>
+          <h3>Dashboard vivo</h3>
+          <p>Gráficos em CSS/JS, status, tarefas, atividade e indicadores simulados.</p>
+        </article>
+        <article class="feature-card reveal" data-tilt>
+          <span class="icon">✦</span>
+          <h3>Comando rápido</h3>
+          <p>Pressione Ctrl+K para abrir uma paleta de comandos fake, estilo app moderno.</p>
+        </article>
+        <article class="feature-card reveal" data-tilt>
+          <span class="icon">⬡</span>
+          <h3>Persistência local</h3>
+          <p>Preferência de tema e tarefas ficam salvas no navegador com localStorage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard section" id="painel">
+      <div class="panel reveal">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Painel central</p>
+            <h2>Centro de comando</h2>
+          </div>
+          <div class="status-pill">
+            <span></span>
+            Online
+          </div>
+        </div>
+
+        <div class="dashboard-layout">
+          <aside class="sidebar-card">
+            <h3>Módulos</h3>
+            <button class="module active" data-module="juridico">Jurídico</button>
+            <button class="module" data-module="negocios">Negócios</button>
+            <button class="module" data-module="financeiro">Financeiro</button>
+            <button class="module" data-module="conteudo">Conteúdo</button>
+          </aside>
+
+          <div class="main-card">
+            <div class="main-card-top">
+              <div>
+                <span class="tiny-label">Módulo selecionado</span>
+                <h3 id="moduleTitle">Jurídico estratégico</h3>
+              </div>
+              <button class="ghost-btn small" id="addTaskBtn" type="button">Adicionar tarefa</button>
+            </div>
+
+            <div class="chart-row">
+              <div class="donut" style="--value: 78">
+                <span>78%</span>
+              </div>
+              <div class="bar-stack" aria-label="Indicadores">
+                <label>Provas <span>86%</span></label>
+                <div><i style="width:86%"></i></div>
+                <label>Prazo <span>64%</span></label>
+                <div><i style="width:64%"></i></div>
+                <label>Impacto <span>92%</span></label>
+                <div><i style="width:92%"></i></div>
+              </div>
+            </div>
+
+            <ul class="task-list" id="taskList">
+              <li><span></span> Revisar documentos principais <button type="button">feito</button></li>
+              <li><span></span> Separar evidências fortes <button type="button">feito</button></li>
+              <li><span></span> Montar narrativa de decisão <button type="button">feito</button></li>
+            </ul>
+          </div>
+
+          <div class="activity-card">
+            <h3>Atividade</h3>
+            <div class="timeline">
+              <p><span></span> Matriz de risco atualizada</p>
+              <p><span></span> Simulador recalculado</p>
+              <p><span></span> Nova tarefa registrada</p>
+              <p><span></span> Tema sincronizado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split" id="modulos">
+      <div class="reveal">
+        <p class="eyebrow">Simulador</p>
+        <h2>Calcule a força de uma ideia.</h2>
+        <p>
+          Um mini simulador interativo para mostrar como uma página pode reagir a dados do usuário.
+          Altere os controles e veja o veredito mudar.
+        </p>
+
+        <div class="sliders">
+          <label>
+            Clareza da oferta
+            <input type="range" min="0" max="100" value="72" id="clarity">
+          </label>
+          <label>
+            Urgência percebida
+            <input type="range" min="0" max="100" value="58" id="urgency">
+          </label>
+          <label>
+            Confiança visual
+            <input type="range" min="0" max="100" value="86" id="trust">
+          </label>
+        </div>
+      </div>
+
+      <div class="score-card reveal">
+        <span class="tiny-label">Veredito do oráculo</span>
+        <strong id="ideaScore">72</strong>
+        <p id="ideaText">Ideia forte, mas ainda pode ganhar mais urgência.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Catálogo filtrável</p>
+        <h2>Escolha um tipo de projeto.</h2>
+      </div>
+
+      <div class="filter-row reveal">
+        <button class="chip active" data-filter="all">Todos</button>
+        <button class="chip" data-filter="vendas">Vendas</button>
+        <button class="chip" data-filter="sistema">Sistema</button>
+        <button class="chip" data-filter="conteudo">Conteúdo</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <article class="project-card reveal" data-type="vendas">
+          <h3>Cardápio digital</h3>
+          <p>Carrinho simples, categorias e envio para WhatsApp.</p>
+          <span>vendas</span>
+        </article>
+        <article class="project-card reveal" data-type="sistema">
+          <h3>Painel jurídico</h3>
+          <p>Processos, prazos, provas, tarefas e status.</p>
+          <span>sistema</span>
+        </article>
+        <article class="project-card reveal" data-type="vendas">
+          <h3>Landing page</h3>
+          <p>Oferta, depoimentos, FAQ, CTA e métricas.</p>
+          <span>vendas</span>
+        </article>
+        <article class="project-card reveal" data-type="conteudo">
+          <h3>Blog sombrio</h3>
+          <p>Textos, categorias, leitura imersiva e trilha visual.</p>
+          <span>conteúdo</span>
+        </article>
+        <article class="project-card reveal" data-type="sistema">
+          <h3>Controle financeiro</h3>
+          <p>Entradas, saídas, vencimentos e relatórios.</p>
+          <span>sistema</span>
+        </article>
+        <article class="project-card reveal" data-type="conteudo">
+          <h3>Roteirizador</h3>
+          <p>Geração de cenas, pausas, tags e narração.</p>
+          <span>conteúdo</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section pricing" id="precos">
+      <div class="section-head reveal">
+        <p class="eyebrow">Planos fictícios</p>
+        <h2>Como isso pareceria como produto real.</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <h3>Base</h3>
+          <strong>R$ 49</strong>
+          <p>Site simples, formulário e WhatsApp.</p>
+          <ul>
+            <li>Layout responsivo</li>
+            <li>SEO básico</li>
+            <li>Hospedagem estática</li>
+          </ul>
+        </article>
+        <article class="price-card featured reveal">
+          <span class="badge">Mais poderoso</span>
+          <h3>Império</h3>
+          <strong>R$ 149</strong>
+          <p>Painel, cadastro, filtros e automações simples.</p>
+          <ul>
+            <li>Painel administrativo</li>
+            <li>Dados salvos</li>
+            <li>Relatórios visuais</li>
+          </ul>
+        </article>
+        <article class="price-card reveal">
+          <h3>Oráculo</h3>
+          <strong>R$ 299</strong>
+          <p>Sistema completo com login e banco de dados.</p>
+          <ul>
+            <li>Autenticação</li>
+            <li>Banco Supabase/Firebase</li>
+            <li>Deploy profissional</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Perguntas rápidas</h2>
+      </div>
+
+      <div class="accordion reveal">
+        <button type="button">Esse site usa framework?</button>
+        <div>Não. É HTML, CSS e JavaScript puro para ser fácil de subir no GitHub Pages.</div>
+
+        <button type="button">Dá para transformar em sistema real?</button>
+        <div>Sim. O próximo passo seria adicionar backend, login e banco de dados.</div>
+
+        <button type="button">Funciona no celular?</button>
+        <div>Sim. O layout é responsivo e foi pensado para mobile também.</div>
+      </div>
+    </section>
+  </main>
+
+  <button class="command-button" id="commandButton" type="button" aria-label="Abrir comandos">⌘K</button>
+
+  <div class="modal" id="demoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close-modal type="button">×</button>
+      <p class="eyebrow">Demo interativa</p>
+      <h2 id="modalTitle">Entrar no Nebula Tribunal</h2>
+      <p>Esta é uma simulação visual. Em um sistema real, aqui entraria login, banco de dados e permissões.</p>
+      <form id="demoForm">
+        <input placeholder="Seu nome" required>
+        <input placeholder="Projeto desejado" required>
+        <button class="primary-btn" type="submit">Ativar simulação</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="command-palette" id="commandPalette" aria-hidden="true">
+    <div class="command-panel">
+      <input id="commandSearch" placeholder="Digite um comando... Ex: tema, painel, preço" />
+      <div class="command-results" id="commandResults"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Nebula Tribunal. Protótipo experimental.</p>
+    <a href="#inicio">Voltar ao topo</a>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>

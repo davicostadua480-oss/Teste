@@ -1,0 +1,17 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,37 @@
++# Nebula Tribunal
++
++Protótipo experimental de site futurista/interativo.
++
++Arquivos:
++
++- index.html
++- styles.css
++- script.js
++
++Abra index.html no navegador ou publique via GitHub Pages.
